@@ -7,6 +7,8 @@ use App\Http\Controllers\RecolectaController;
 use App\Http\Controllers\FincaController;
 use App\Http\Controllers\InsumoController;
 use App\Http\Controllers\HerramientaController;
+use App\Http\Controllers\SolicitudController;
+
 
 
 // Ruta principal
@@ -64,3 +66,16 @@ Route::delete('/insumos/{id}', [InsumoController::class, 'destroy'])->name('insu
 Route::get('herramientas', [HerramientaController::class, 'index'])->name('herramientas.index');
 Route::get('herramientas/create', [HerramientaController::class, 'create'])->name('herramientas.create');
 Route::post('herramientas', [HerramientaController::class, 'store'])->name('herramientas.store');
+Route::put('/herramientas/{id}', [HerramientaController::class, 'update'])->name('herramientas.update');
+Route::delete('/herramientas/{id}', [HerramientaController::class, 'destroy'])->name('herramientas.destroy');
+
+Route::middleware(['auth'])->group(function () {
+    Route::get('/solicitudes', [SolicitudController::class, 'index'])->name('solicitudes.index');
+    Route::get('/solicitudes/create', [SolicitudController::class, 'create'])->name('solicitudes.create');
+    Route::post('/solicitudes', [SolicitudController::class, 'store'])->name('solicitudes.store');
+    Route::get('/solicitudes/{id}/edit', [SolicitudController::class, 'edit'])->name('solicitudes.edit');
+    Route::put('/solicitudes/{id}', [SolicitudController::class, 'update'])->name('solicitudes.update');
+    Route::delete('/solicitudes/{id}', [SolicitudController::class, 'destroy'])->name('solicitudes.destroy');
+    Route::get('solicitudes/{id}', [SolicitudController::class, 'show'])->name('solicitudes.show');
+
+});

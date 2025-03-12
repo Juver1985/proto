@@ -135,7 +135,7 @@
                                         </a>
                                     </li>
                                     <li class="nav-item">
-
+                                        <a href="{{ route('herramientas.index') }}" class="nav-link text-dark">
                                         <i class="nav-icon fas fa-clipboard-list"></i>
                                         <p>Listas</p>
                                         </a>
@@ -221,6 +221,24 @@
                            
                         </ul>
                     </li>
+                    <!-- Activiadaes -->
+                    <li class="nav-item">
+                        <a href="#" class="nav-link text-success">
+                            <i class="nav-icon fas fa-calendar-check"></i>
+                            <p>Actividades</p>
+                                <i class="fas fa-angle-left right"></i>
+                        </a>
+                        <ul class="nav nav-treeview">
+                                <a href="{{ asset('AdminLTE-3.2.0/pages/tables/simple.html') }}"
+                                    class="nav-link text-dark">
+                                    <i class="nav-icon fas fa-tasks"></i>
+                                    <p>Solicitudes</p>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+
+
 
                     <!-- Reportes -->
                     <li class="nav-item has-treeview">
@@ -229,13 +247,6 @@
                             <p>Reportes<i class="fas fa-angle-left right"></i></p>
                         </a>
                         <ul class="nav nav-treeview">
-                            <li class="nav-item">
-                                <a href="{{ asset('AdminLTE-3.2.0/pages/tables/simple.html') }}"
-                                    class="nav-link text-dark">
-                                    <i class="nav-icon fas fa-tasks"></i>
-                                    <p>Actividades</p>
-                                </a>
-                            </li>
                             <li class="nav-item">
                                 <a href="{{ asset('AdminLTE-3.2.0/pages/tables/data.html') }}"
                                     class="nav-link text-dark">

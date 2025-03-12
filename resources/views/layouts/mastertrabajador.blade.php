@@ -61,190 +61,30 @@
                 <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu"
                     data-accordion="false">
                     <br><br><br><br>
-
-                    <!-- Unidades Productivas -->
-                    <li class="nav-item has-treeview">
+                    <!-- Activiadaes -->
+                    <li class="nav-item">
                         <a href="#" class="nav-link text-success">
-                            <i class="fas fa-seedling"></i> &nbsp;
-                            <p>
-                                Unidades Productivas
-                                <i class="fas fa-angle-left right"></i>
-                            </p>
+                            <i class="nav-icon fas fa-calendar-check"></i>
+                            <p>Actividades</p>
+                            <i class="fas fa-angle-left right"></i>
                         </a>
                         <ul class="nav nav-treeview">
                             <li class="nav-item">
-                                <a href="{{ route('cultivos.create')}}" class="nav-link text-dark">
+                              
                                     <i class="nav-icon fas fa-edit"></i>
-                                    <p>Ingreso</p>
+                                    <p>Registro Actividades</p>
                                 </a>
                             </li>
 
                             <li class="nav-item">
-                                <a href="{{ route('cultivos.index')}}" class="nav-link text-dark">
+                             
                                     <i class="nav-icon fas fa-clipboard-list"></i>
-                                    <p>Listas</p>
+                                    <p>Listas Actividades</p>
                                 </a>
                             </li>
                         </ul>
                     </li>
-
-                    <!-- Bodega Finca -->
-                    <li class="nav-item has-treeview">
-                        <a href="#" class="nav-link text-success">
-                            <i class="fas fa-warehouse"></i>&nbsp;
-                            <p>
-                                Bodega Finca
-                                <i class="fas fa-angle-left right"></i>
-                            </p>
-                        </a>
-                        <ul class="nav nav-treeview">
-                            <li class="nav-item">
-                                <a href="{{ asset('AdminLTE-3.2.0/pages/UI/general.html') }}"
-                                    class="nav-link text-dark">
-                                    <i class="nav-icon fas fa-box"></i>
-                                    <p>Insumos</p>
-                                    <i class="fas fa-angle-left right"></i>
-                                </a>
-                                <ul class="nav nav-treeview">
-                                    <li class="nav-item">
-
-                                        <i class="nav-icon fas fa-edit"></i>
-                                        <p>Ingreso</p>
-                                        </a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="" class="nav-link text-danger">
-                                            <i class="nav-icon fas fa-clipboard-list"></i>
-                                            <p>Listas</p>
-                                        </a>
-                                    </li>
-                                </ul>
-
-                            </li>
-                            <li class="nav-item">
-                                <a href="{{ asset('AdminLTE-3.2.0/pages/UI/icons.html') }}" class="nav-link text-dark">
-                                    <i class="nav-icon fas fa-tools"></i>
-                                    <p>Herramientas</p>
-                                    <i class="fas fa-angle-left right"></i>
-                                </a>
-                                <ul class="nav nav-treeview">
-                                    <li class="nav-item">
-
-                                        <i class="nav-icon fas fa-edit"></i>
-                                        <p>Ingreso</p>
-                                        </a>
-                                    </li>
-                                    <li class="nav-item">
-
-                                        <i class="nav-icon fas fa-clipboard-list"></i>
-                                        <p>Listas</p>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </li>
-
-                    <!-- Roles Mayordomo -->
-                    <li class="nav-item">
-                        <a href="#" class="nav-link text-success">
-                            <i class="fas fa-user"></i>&nbsp;
-                            <p>Roles Mayordomo</p>
-                            <i class="fas fa-angle-left right"></i>
-                        </a>
-                        <ul class="nav nav-treeview">
-                            <li class="nav-item">
-                                <a href="{{ route('register.mayordomo.form')}}" class="nav-link text-dark">
-                                    <i class="fas fa-users"></i>
-                                    <p>Mayordomo</p>
-                                </a>
-                            </li>
-
-                        </ul>
-                    </li>
-                        <!-- Análisis de Producción -->
-                    <li class="nav-item">
-                        <a href="{{ asset('AdminLTE-3.2.0/pages/widgets.html') }}" class="nav-link text-success">
-                            <i class="nav-icon fas fa-dolly"></i>&nbsp;
-                            <p>Recolecta de Cosecha</p>
-                            <i class="fas fa-angle-left right"></i>
-                        </a>
-                        <ul class="nav nav-treeview">
-                            <li class="nav-item">
-                                <a href="{{ route('recolectas.create') }}" class="nav-link text-dark">
-                                    <i class="nav-icon fas fa-folder-open"></i>
-                                    <p>Registro de Producción</p>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="{{ route('recolectas.graficas') }}" class="nav-link text-dark">
-                                    <i class="nav-icon fas fa-chart-line"></i>
-                                    <p>Analisís de Producción</p>
-                                </a>
-                            </li>
-
-                            <li class="nav-item">
-                                <a href="{{ route('recolectas.rentabilidad')}}" class="nav-link text-dark">
-                                    <i class="nav-icon fas fa-calculator"></i>
-                                    <p>Analisís Rentabilidad</p>
-                            </li>
-                            <li class="nav-item">
-                                <a href="{{ route('cultivos.index')}}" class="nav-link text-dark">
-                                    <i class="nav-icon fas fa-dollar-sign"></i>
-                                    <p>Ganancias</p>
-                                </a>
-                            </li>
-                        </ul>
-
-                    </li>
-
-                    <!-- Geo Referencias -->
-                    <li class="nav-item">
-                        <a href="#" class="nav-link text-success">
-                            <i class="nav-icon fas fa-globe"></i>
-                            <p>Geo Referencias</p>
-                            <i class="fas fa-angle-left right"></i>
-                        </a>
-                        <ul class="nav nav-treeview">
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ route('fincas.create') }}" class="nav-link text-dark">
-                                    <i class="nav-icon fas fa-mountain"></i>
-                                    <p>Registro Finca</p>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ route('fincas.index') }}" class="nav-link text-dark">
-                                    <i class="nav-icon fas fa-map-marker-alt"></i>
-                                    <p>Mapa</p>
-                                </a>
-                            </li>
-                           
-                        </ul>
-                    </li>
-
-                    <!-- Reportes -->
-                    <li class="nav-item has-treeview">
-                        <a href="#" class="nav-link text-danger">
-                            <i class="nav-icon fas fa-file-alt"></i>
-                            <p>Reportes<i class="fas fa-angle-left right"></i></p>
-                        </a>
-                        <ul class="nav nav-treeview">
-                            <li class="nav-item">
-                                <a href="{{ asset('AdminLTE-3.2.0/pages/tables/simple.html') }}"
-                                    class="nav-link text-dark">
-                                    <i class="nav-icon fas fa-tasks"></i>
-                                    <p>Actividades</p>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="{{ asset('AdminLTE-3.2.0/pages/tables/data.html') }}"
-                                    class="nav-link text-dark">
-                                    <i class="nav-icon fas fa-file-invoice-dollar"></i>
-                                    <p>Contable</p>
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
+                    
                 </ul>
             </nav>
             <!-- /.sidebar-menu -->

@@ -22,7 +22,7 @@ class CreateHerramientasTable extends Migration
             $table->Decimal('valor_unitario',10,2);
             $table->integer('cantidad');
             $table->string('estado');
-            $table->boolean('disponible');
+            $table->string('disponible');
             $table->timestamps();
         });
     }
