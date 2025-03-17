@@ -1,9 +1,9 @@
-@extends('layouts.mastermayordomo')
+@extends($layout)
 
 @section('content')
 <div class="container">
-    <h2>Detalles de la Solicitud</h2>
-    
+    <h1>Solicitud #{{ $solicitud->id }}</h1>
+    <p>{{ $solicitud->detalle }}</p>
     <p><strong>Solicitante:</strong> {{ $solicitud->usuario->name }} ({{ ucfirst($solicitud->usuario->role) }})</p>
     <p><strong>Tipo de Solicitud:</strong> {{ $solicitud->tipo }}</p>
     <p><strong>Descripción:</strong> {{ $solicitud->descripcion }}</p>

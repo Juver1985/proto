@@ -23,34 +23,68 @@
 </head>
 
 <body>
-    <nav class="main-header navbar navbar-expand navbar-white navbar-light">
-        <!-- Left navbar links -->
-        <ul class="navbar-nav">
-            <li class="nav-item">
-                <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
-            </li>
-        </ul>
+    <nav class="main-header navbar navbar-expand-lg navbar-light bg-white shadow-sm">
+        <div class="container-fluid">
+            <!-- Botón para abrir menú lateral -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent">
+                <i class="fas fa-bars"></i>
+            </button>
 
-        <!-- Right navbar links -->
-        <ul class="navbar-nav ml-auto">
-            <li class="nav-item dropdown">
-                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                    aria-haspopup="true" aria-expanded="false" v-pre>
-                    {{ Auth::user()->name }}
-                </a>
-
-                <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
-                                     document.getElementById('logout-form').submit();">
-                        {{ __('Cerrar Sesiòn') }}
-                    </a>
-
-                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                        @csrf
-                    </form>
-                </div>
-            </li>
-        </ul>
+            <!-- Contenido del Navbar -->
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ml-auto">
+                    <!-- Notificaciones -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link position-relative" href="#" role="button" data-bs-toggle="dropdown">
+                            <i class="fas fa-bell"></i>
+                            @if(auth()->user()->unreadNotifications->isNotEmpty())
+                                <span class="badge bg-danger rounded-pill position-absolute top-0 start-100 translate-middle">
+                                    {{ auth()->user()->unreadNotifications->count() }}
+                                </span>
+                            @endif
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end shadow-lg">
+                            <li class="dropdown-header bg-primary text-white d-flex justify-content-between">
+                                <span><i class="fas fa-bell"></i> Notificaciones</span>
+                                <a href="{{ route('marcarNotificacionesLeidas') }}" class="text-white small">Marcar todas</a>
+                            </li>
+                            @forelse(auth()->user()->unreadNotifications as $notification)
+                                <li>
+                                    <a class="dropdown-item d-flex align-items-center" href="{{ route('solicitudes.show', $notification->data['solicitud_id']) }}">
+                                        <div class="me-2">
+                                            <i class="fas fa-envelope text-primary"></i>
+                                        </div>
+                                        <div>
+                                            <p class="mb-0"><strong>Solicitud #{{ $notification->data['solicitud_id'] }}</strong></p>
+                                            <small class="text-muted">{{ $notification->data['mensaje'] }}</small>
+                                        </div>
+                                    </a>
+                                </li>
+                            @empty
+                                <li class="dropdown-item text-center text-muted small">No tienes notificaciones pendientes.</li>
+                            @endforelse
+                        </ul>
+                    </li>
+    
+                    <!-- Perfil de Usuario -->
+                    <li class="nav-item dropdown ms-3">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+                            <i class="fas fa-user-circle"></i> {{ Auth::user()->name }}
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end shadow">
+                            <li>
+                                <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                                    <i class="fas fa-sign-out-alt text-danger"></i> Cerrar Sesión
+                                </a>
+                            </li>
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                @csrf
+                            </form>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
     </nav>
     <aside class="main-sidebar sidebar-success-green elevation-4">
         <img src="{{ asset('images/LogoAgrosoft2.png')}}" width="80%" alt="">
@@ -224,15 +258,22 @@
                     <!-- Activiadaes -->
                     <li class="nav-item">
                         <a href="#" class="nav-link text-success">
-                            <i class="nav-icon fas fa-calendar-check"></i>
-                            <p>Actividades</p>
-                                <i class="fas fa-angle-left right"></i>
+                            <i class="nav-icon fas fa-envelope-open-text"></i>
+                            <p>Solicitudes</p>
+                            <i class="fas fa-angle-left right"></i>
                         </a>
                         <ul class="nav nav-treeview">
-                                <a href="{{ asset('AdminLTE-3.2.0/pages/tables/simple.html') }}"
-                                    class="nav-link text-dark">
-                                    <i class="nav-icon fas fa-tasks"></i>
-                                    <p>Solicitudes</p>
+                            <li class="nav-item">
+                                <a href="{{ route('solicitudes.create') }}" class="nav-link text-success"> 
+                                <i class="nav-icon fas fa-envelope"></i>
+                                    <p>Registro Solicitudes</p>
+                                </a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a href="{{ route('solicitudes.index') }}" class="nav-link text-success">  
+                                <i class="nav-icon fas fa-envelope-open-text"></i>
+                                    <p>Historial Solicitudes</p>
                                 </a>
                             </li>
                         </ul>

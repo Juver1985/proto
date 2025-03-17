@@ -79,3 +79,8 @@ Route::middleware(['auth'])->group(function () {
     Route::get('solicitudes/{id}', [SolicitudController::class, 'show'])->name('solicitudes.show');
 
 });
+
+Route::get('/notificaciones/leidas', function () {
+    auth()->user()->unreadNotifications->markAsRead();
+    return back();
+})->name('marcarNotificacionesLeidas');

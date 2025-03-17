@@ -84,6 +84,28 @@
                             </li>
                         </ul>
                     </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link text-success">
+                            <i class="nav-icon fas fa-calendar-check"></i>
+                            <p>Recolecta</p>
+                            <i class="fas fa-angle-left right"></i>
+                        </a>
+                        <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                              
+                                    <i class="nav-icon fas fa-edit"></i>
+                                    <p>Historial</p>
+                                </a>
+                            </li>
+
+                            <li class="nav-item">
+                             
+                                    <i class="nav-icon fas fa-clipboard-list"></i>
+                                    <p>Pagos</p>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
                     
                 </ul>
             </nav>

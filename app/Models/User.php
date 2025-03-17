@@ -8,8 +8,10 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 
+
 class User extends Authenticatable
 {
+    use Notifiable;
     use HasApiTokens, HasFactory, Notifiable;
 
     /**
@@ -17,6 +19,10 @@ class User extends Authenticatable
      *
      * @var array<int, string>
      */
+    public function esAdmin() {
+        return $this->role === 'admin';
+    }
+
     protected $fillable = [
         'name',
         'email',
